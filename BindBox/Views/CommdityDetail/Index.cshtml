@@ -1,0 +1,119 @@
+﻿@model IEnumerable<BindBox.Models.Model.Grade>
+
+<!-- 标题 -->
+<div class="admin-content">
+    <div class="admin-content-body">
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-fl am-cf">
+                <strong class="am-text-primary am-text-lg">子商品管理</strong> / <small>
+                    Sub-commodity
+                    Management
+                </small>
+            </div>
+        </div>
+
+        <hr>
+        <!-- 操作 -->
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-md-8">
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" @*@click="addCommInfoOpen()"*@>
+                            <span class="am-icon-plus"></span> 全选
+                        </button>
+
+                        <button type="button" class="am-btn am-btn-default">
+                            <span class="am-icon-trash-o"></span>
+                            删除
+                        </button>
+                        <button style="margin-left: 10px;" type="button" id="grade_manager" class="am-btn am-btn-default">
+                            <span class="am-icon-archive"></span>
+                            规格操作
+                        </button>
+
+                        <button type="button" class="am-btn am-btn-default">
+                            <span class="am-icon-save"></span>
+                            类型操作
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-u-md-4">
+                <div class="am-input-group am-input-group-sm">
+                    <input type="text" class="am-form-field" id="searchCommInfo" @*@keyup.enter="searchBtn"*@
+                           placeholder="请输入商品名称" :value="commInfoSearch">
+                    <span class="am-input-group-btn">
+                        <button class="am-btn am-btn-default" type="button" @*@click="searchBtn"*@>搜索</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 商品管理 -->
+    <div class="am-tabs am-u-sm-12" data-am-tabs>
+        <!-- 商品类型分类选项卡 -->
+        <ul class="am-tabs-nav am-nav am-nav-tabs" style="font-size: 14px;">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a>
+                        @item.GradeName
+                    </a>
+                </li>
+            }
+        </ul>
+
+        <div class="am-tabs-bd">
+            <!-- am-in am-active -->
+            <div class="am-tab-panel am-fade am-in am-active">
+                <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-margin gallery-list">
+                    <li>
+                        <div>
+                            <a href="#">
+                                <img class="am-img-thumbnail am-img-bdrs"
+                                     data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 1000, height: 530}"
+                                     src="~/images/commdity_detail/未命名.png" alt="" />
+
+                                <div class="row">
+                                    <div class="form-group col-md-7">
+                                        <input type="checkbox" value="">
+                                        adfsaf
+                                    </div>
+                                    <div class="form-group col-md-5" style="text-align: right;">
+                                        <button type="button" class="am-btn am-btn-default am-btn-xl"
+                                                style="font-size: 8px;">
+                                            删除
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        参考价格：￥88
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <!-- "addCommInfoOpen(item)"
+                             data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 1000, height: 530}"-->
+                        <div id="add_commdity_detail">
+                            <img class="am-img-thumbnail am-img-bdrs" src="~/images/commdity_detail/加号_gaitubao_1000x700.jpg" alt="" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+<script src="~/js/commdity_detail/Index.js"></script>
+}
+

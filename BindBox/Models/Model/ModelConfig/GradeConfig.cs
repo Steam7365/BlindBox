@@ -10,6 +10,7 @@ namespace BindBox.Models.Model.ModelConfig
             builder.HasKey(x => x.GradeId);
             builder.Property(x => x.GradeName).HasMaxLength(20);
             builder.Property(x => x.Probability).HasColumnType("float");
+            builder.HasQueryFilter(x => x.IsDelete == false);
         }
     }
 }

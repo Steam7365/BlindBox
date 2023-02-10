@@ -15,6 +15,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
