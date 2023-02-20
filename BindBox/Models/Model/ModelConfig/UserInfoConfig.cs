@@ -13,7 +13,7 @@ namespace BindBox.Models.Model.ModelConfig
             builder.Property(x => x.UserNumber).HasMaxLength(20);
             builder.Property(x => x.UserPwd).HasMaxLength(20);
             builder.Property(x => x.UserPhone).HasMaxLength(11);
-            builder.Property(x => x.HeadPortrait).HasColumnType("Image");
+            builder.Property(x => x.HeadPortrait).HasMaxLength(200);
         }
     }
 }

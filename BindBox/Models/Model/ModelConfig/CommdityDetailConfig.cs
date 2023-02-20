@@ -10,9 +10,9 @@ namespace BindBox.Models.Model.ModelConfig
             builder.HasKey(x => x.CommdityDetailId);
             builder.Property(x => x.ComminfoName).HasMaxLength(20);
             builder.Property(x => x.ComminfoSpec).HasMaxLength(10);
-            builder.Property(x => x.ComminfoPrice).HasColumnType("money");
-            builder.Property(x => x.OfficiaPrice).HasColumnType("money");
-            builder.Property(x => x.ComminfoImg).HasColumnType("Image");
+            builder.Property(x => x.ComminfoPrice).HasColumnType("decimal(18,2)");
+            builder.Property(x => x.OfficiaPrice).HasColumnType("decimal(18,2)");
+            builder.Property(x => x.ComminfoImg).HasMaxLength(200);
             builder.HasOne<Grade>(x => x.Grade).WithMany(x => x.CommdityDetails);
             builder.HasMany<BoxCommodity>(x=>x.BoxCommodities).WithMany(x => x.CommdityDetails).UsingEntity(x=>x.ToTable("box_connect",schema:"ro"));
         }

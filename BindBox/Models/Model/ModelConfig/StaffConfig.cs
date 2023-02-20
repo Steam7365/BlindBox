@@ -16,7 +16,7 @@ namespace BindBox.Models.Model.ModelConfig
             builder.Property(x => x.StaffEntryTime).HasColumnType("date").HasDefaultValueSql("getdate()");
             builder.Property(x => x.StaffPosition).HasMaxLength(20);
             builder.Property(x => x.StaffState).HasMaxLength(20);
-            builder.Property(x => x.Image).HasColumnType("Image");
+            builder.Property(x => x.Image).HasMaxLength(200);
             builder.Property(x => x.Province).HasMaxLength(20);
             builder.Property(x => x.City).HasMaxLength(20);
             builder.Property(x => x.Area).HasMaxLength(20);

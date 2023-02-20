@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BindBox.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230208111946_Init")]
-    partial class Init
+    [Migration("20230219143708_commdity_detail_price_2")]
+    partial class commdity_detail_price_2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.12")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -98,9 +98,9 @@ namespace BindBox.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<byte[]>("CoverPhoto")
-                        .IsRequired()
-                        .HasColumnType("Image");
+                    b.Property<string>("CoverPhoto")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Desc")
                         .IsRequired()
@@ -149,9 +149,9 @@ namespace BindBox.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommdityDetailId"), 1L, 1);
 
-                    b.Property<byte[]>("ComminfoImg")
-                        .IsRequired()
-                        .HasColumnType("Image");
+                    b.Property<string>("ComminfoImg")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ComminfoName")
                         .IsRequired()
@@ -159,7 +159,7 @@ namespace BindBox.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<decimal>("ComminfoPrice")
-                        .HasColumnType("money");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ComminfoSpec")
                         .IsRequired()
@@ -173,7 +173,7 @@ namespace BindBox.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal?>("OfficiaPrice")
-                        .HasColumnType("money");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("CommdityDetailId");
 
@@ -370,8 +370,9 @@ namespace BindBox.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("Image");
+                    b.Property<string>("Image")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -433,8 +434,9 @@ namespace BindBox.Migrations
                     b.Property<DateTime?>("Birthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte[]>("HeadPortrait")
-                        .HasColumnType("Image");
+                    b.Property<string>("HeadPortrait")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");

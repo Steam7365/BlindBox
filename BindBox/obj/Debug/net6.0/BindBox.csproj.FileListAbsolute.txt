@@ -269,3 +269,4 @@ D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox\bin\Debug\net6.0\runtim
 D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox\bin\Debug\net6.0\wwwroot\js\commdity_detail\Index.js

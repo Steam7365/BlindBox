@@ -10,7 +10,7 @@
         /// <summary>
         /// 封面图
         /// </summary>
-        public byte[] CoverPhoto { get; set; }
+        public string? CoverPhoto { get; set; }
         /// <summary>
         /// 描述
         /// </summary>

@@ -45,7 +45,7 @@ namespace BindBox.Models.Model
         /// <summary>
         /// 头像
         /// </summary>
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
         /// <summary>
         /// 省
         /// </summary>

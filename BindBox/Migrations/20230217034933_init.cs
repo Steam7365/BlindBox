@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BindBox.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,7 +61,7 @@ namespace BindBox.Migrations
                     StaffEntryTime = table.Column<DateTime>(type: "date", nullable: false, defaultValueSql: "getdate()"),
                     StaffPosition = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     StaffState = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Image = table.Column<byte[]>(type: "Image", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Province = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     City = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     Area = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
@@ -85,7 +85,7 @@ namespace BindBox.Migrations
                     UserNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     UserPwd = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     UserPhone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
-                    HeadPortrait = table.Column<byte[]>(type: "Image", nullable: true),
+                    HeadPortrait = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -102,7 +102,7 @@ namespace BindBox.Migrations
                     BoxCommodityId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CommodityName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    CoverPhoto = table.Column<byte[]>(type: "Image", nullable: false),
+                    CoverPhoto = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Desc = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
                     Price = table.Column<decimal>(type: "money", nullable: false),
                     BoxFolderId = table.Column<int>(type: "int", nullable: true),
@@ -130,7 +130,7 @@ namespace BindBox.Migrations
                     ComminfoSpec = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     ComminfoPrice = table.Column<decimal>(type: "money", nullable: false),
                     OfficiaPrice = table.Column<decimal>(type: "money", nullable: true),
-                    ComminfoImg = table.Column<byte[]>(type: "Image", nullable: false),
+                    ComminfoImg = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     GradeId = table.Column<int>(type: "int", nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false)
                 },

@@ -22,7 +22,7 @@
         /// <summary>
         /// 图片
         /// </summary>
-        public byte[] ComminfoImg { get; set; }
+        public string? ComminfoImg { get; set; }
         /// <summary>
         /// 盲盒商品等级
         /// </summary>

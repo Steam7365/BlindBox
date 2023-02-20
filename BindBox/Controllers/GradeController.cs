@@ -32,9 +32,8 @@ namespace BindBox.Controllers
             {
                 _context.Add(grade);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexAsync));
             }
-            return View(grade);
+            return RedirectToAction(nameof(IndexAsync));
         }
 
         // GET: Grade/Edit/5

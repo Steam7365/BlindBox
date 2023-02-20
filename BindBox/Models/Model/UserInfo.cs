@@ -26,7 +26,7 @@
         /// <summary>
         /// 头像
         /// </summary>
-        public byte[]? HeadPortrait { get; set; }
+        public string? HeadPortrait { get; set; }
         /// <summary>
         /// 生日
         /// </summary>
