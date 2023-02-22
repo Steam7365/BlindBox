@@ -1,18 +1,19 @@
-﻿@model BindBox.Models.Model.CommdityDetail
+﻿@model BindBox.Models.CommdityDetail
 
 
 @*@section Css {
     @{
-        <link rel="stylesheet" href="~/css/commdity_detail/create.css" />
+    <link rel="stylesheet" href="~/css/commdity_detail/create.css" />
     }
-}*@
+    }*@
 <div class="admin-content" style="width:98%;">
     <div class="am-modal-hd" style="text-align:center;">
-        新增子商品等级
+        新增子商品信息
     </div>
     <hr>
 
     <form asp-action="Create">
+        <input type="hidden" asp-for="FKGradeId" class="form-control"/>
         <div class="row">
             <div class="col-md-4">
                 <div class="layui-upload" style="margin-left:3%;margin-right:3%;">
@@ -70,51 +71,51 @@
 </div>
 
 <script>
-    //图片上传
-layui.use(['upload', 'element', 'layer'], function () {
-    var $ = layui.jquery
-        , upload = layui.upload
-        , element = layui.element
-        , layer = layui.layer;
-    //常规使用 - 普通图片上传
-    var uploadInst = upload.render({
-        elem: '#test1'
-        , url: "@Url.Action("UploadImage", "CommdityDetail")"//上传接口
-            , before: function (obj) {
-            //预读本地文件示例，不支持ie8
-            obj.preview(function (index, file, result) {
-                //console.log(result);
-                $('#demo1').attr('src', result); //图片链接（base64）
-            });
-            element.progress('demo', '0%'); //进度条复位
-            layer.msg('上传中', { icon: 16, time: 0 });
-        }
-        , done: function (res) {
-            //console.log("res:" + res);
-            //如果上传失败
-            if (res.code > 0) {
-                return layer.msg('上传失败');
+        //图片上传
+    layui.use(['upload', 'element', 'layer'], function () {
+        var $ = layui.jquery
+            , upload = layui.upload
+            , element = layui.element
+            , layer = layui.layer;
+        //常规使用 - 普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            , url: "@Url.Action("UploadImage", "CommdityDetail")"//上传接口
+                , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    //console.log(result);
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+                element.progress('demo', '0%'); //进度条复位
+                layer.msg('上传中', { icon: 16, time: 0 });
             }
-            //上传成功的一些操作
-            $('#demoText').html(''); //置空上传失败的状态
-        }
-        , error: function () {
-            //演示失败状态，并实现重传
-            var demoText = $('#demoText');
-            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-            demoText.find('.demo-reload').on('click', function () {
-                uploadInst.upload();
-            });
-        }
-        //进度条
-        , progress: function (n, elem, e) {
-            element.progress('demo', n + '%'); //可配合 layui 进度条元素使用
-            if (n == 100) {
-                layer.msg('上传完毕', { icon: 1 });
+            , done: function (res) {
+                //console.log("res:" + res);
+                //如果上传失败
+                if (res.code > 0) {
+                    return layer.msg('上传失败');
+                }
+                //上传成功的一些操作
+                $('#demoText').html(''); //置空上传失败的状态
             }
-        }
-    })
-});
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+            //进度条
+            , progress: function (n, elem, e) {
+                element.progress('demo', n + '%'); //可配合 layui 进度条元素使用
+                if (n == 100) {
+                    layer.msg('上传完毕', { icon: 1 });
+                }
+            }
+        })
+    });
 </script>
 
 @section Scripts {

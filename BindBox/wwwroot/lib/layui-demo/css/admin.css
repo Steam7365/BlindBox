@@ -1,7 +1,9 @@
 .layui-tab-title li:first-child > i {
     display: none;
 }
-
+.layui-body {
+    bottom: 0 !important;
+}
 .layadmin-iframe {
     box-sizing: border-box;
     position: absolute;

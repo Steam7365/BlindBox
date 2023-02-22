@@ -1,3 +1,7 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using BindBox.DAO;
+using BindBox.EF;
 using BindBox.Models;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -5,9 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterType<CommdityDetailManager>().As<ICommdityDetailService>().InstancePerDependency();
+    builder.RegisterType<GradeManager>().As<IGradeService>().InstancePerDependency();
+    builder.RegisterType<StaffServiceManager>().As<IStaffService>().InstancePerDependency();
+});
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration["Data:BindBox:ConnectionString"]);
+    options.UseSqlServer(builder.Configuration["Data:BindBox:ConnectionString"],b=>b.MigrationsAssembly("BindBox"));
 });
 
 var app = builder.Build();
@@ -30,5 +41,13 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action}/{id?}/{gid?}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action}/{gid?}");
 
 app.Run();

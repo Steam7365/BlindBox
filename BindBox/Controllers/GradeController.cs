@@ -1,20 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BindBox.DAO;
+using BindBox.EF;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BindBox.Controllers
 {
     public class GradeController : Controller
     {
-        private readonly MyDbContext _context;
+        private readonly IGradeService _gradeService;
 
-        public GradeController(MyDbContext context)
+        public GradeController(IGradeService gradeService)
         {
-            _context = context;
+            _gradeService = gradeService;
         }
         // GET: Grade
         public async Task<ActionResult> IndexAsync()
         {
-            return View(await _context.Grades.ToListAsync());
+            return View(await _gradeService.ModelQueryable.ToListAsync());
         }
 
         // GET: Grade/Create
@@ -30,8 +32,7 @@ namespace BindBox.Controllers
         {
             if (!ModelState.IsValid)
             {
-                _context.Add(grade);
-                await _context.SaveChangesAsync();
+                await _gradeService.CreateAsync(grade);
             }
             return RedirectToAction(nameof(IndexAsync));
         }
@@ -39,12 +40,12 @@ namespace BindBox.Controllers
         // GET: Grade/Edit/5
         public async Task<ActionResult> EditAsync(int id)
         {
-            if (id == null || _context.Grades == null)
+            if (id == null || _gradeService.ModelQueryable == null)
             {
                 return NotFound();
             }
 
-            var grade = await _context.Grades.FindAsync(id);
+            var grade = await _gradeService.SingAsync(id);
             if (grade == null)
             {
                 return NotFound();
@@ -61,49 +62,19 @@ namespace BindBox.Controllers
             {
                 return NotFound();
             }
-            try
-            {
-                _context.Update(grade);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!GradeExists(grade.GradeId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _gradeService.UpdateAsync(grade);
             return RedirectToAction(nameof(Index));
-        }
-        private bool GradeExists(int id)
-        {
-            return _context.Grades.Any(e => e.GradeId == id);
         }
 
         // GET: Grade/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Grades == null)
+            if (id == null || _gradeService.ModelQueryable == null)
             {
                 return NotFound();
             }
+            await _gradeService.DeleteAsync(id);
 
-            var grade = await _context.Grades
-                .FirstOrDefaultAsync(m => m.GradeId == id);
-
-            if (grade == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                grade.IsDelete = true;
-                await _context.SaveChangesAsync();
-            }
             return RedirectToAction(nameof(Index));
         }
     }

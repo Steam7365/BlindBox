@@ -8,85 +8,85 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BindBox
 build_property.RootNamespace = BindBox
-build_property.ProjectDir = D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox\
+build_property.ProjectDir = C:\Users\Voe\Desktop\BindBox\BindBox\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\文件\项目\LeBlindBox\盲盒系统\BindBox\BindBox
+build_property.MSBuildProjectDirectory = C:\Users\Voe\Desktop\BindBox\BindBox
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Create.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/CommdityDetail/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Delete.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/CommdityDetail/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Edit.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/CommdityDetail/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/CommdityDetail/Index.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/CommdityDetail/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWRpdHlEZXRhaWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Create.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Grade/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Delete.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Grade/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Edit.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Grade/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Grade/Index.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Grade/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Home/Index.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Home/Privacy.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Shared/Error.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Staffs/Create.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Staffs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Staffs/Delete.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Staffs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Staffs/Edit.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Staffs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Staffs/Index.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Staffs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/_ViewImports.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/_ViewStart.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/文件/项目/LeBlindBox/盲盒系统/BindBox/BindBox/Views/Shared/_Layout.cshtml]
+[C:/Users/Voe/Desktop/BindBox/BindBox/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-khixahe95l

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BindBox.DAO;
+using BindBox.EF;
+using BindBox.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 
@@ -6,91 +9,115 @@ namespace BindBox.Controllers
 {
     public class CommdityDetailController : Controller
     {
-        private readonly MyDbContext _context;
+        private readonly ICommdityDetailService _commdityDetailService;
+        private readonly IGradeService _gradeService;
         private readonly IWebHostEnvironment _hostingEnvironment;
         private static string Img;
         public IConfiguration Configuration { get; }
 
-        public CommdityDetailController(MyDbContext context, IConfiguration configuration, IWebHostEnvironment hostingEnvironment)
+        #region 构造函数
+        public CommdityDetailController(ICommdityDetailService commdityDetailService,
+            IGradeService gradeService,
+            IConfiguration configuration,
+            IWebHostEnvironment hostingEnvironment)
         {
-            _context = context;
+            _gradeService = gradeService;
+            _commdityDetailService = commdityDetailService;
             Configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
         }
         // GET: CommdityDetailController
+
+        #endregion
+        
         public async Task<ActionResult> IndexAsync()
         {
-            ViewBag.CommdityDetails=await _context.CommdityDetails.ToListAsync();
-            return View(await _context.Grades.ToListAsync());
+            ViewBag.CommdityDetails = _commdityDetailService.ModelQueryable;
+            return View(await _gradeService.ModelQueryable.ToListAsync());
         }
 
-        // GET: CommdityDetailController/Details/5
-        public ActionResult Details(int id)
+        #region 添加
+        // GET: CommdityDetailController/Create/gid
+        public ActionResult Create(int id)
         {
-            return View();
-        }
-
-        // GET: CommdityDetailController/Create
-        public ActionResult Create()
-        {
-            return View();
+            var commdityDetail = new CommdityDetail();
+            commdityDetail.FKGradeId = id;
+            return View(commdityDetail);
         }
 
         // POST: CommdityDetailController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CommdityDetailId,ComminfoName,ComminfoSpec,ComminfoPrice,OfficiaPrice")] CommdityDetail commdityDetail)
+        public async Task<IActionResult> Create([Bind("CommdityDetailId, ComminfoName, ComminfoSpec, ComminfoPrice, OfficiaPrice, FKGradeId")] CommdityDetail commdityDetail)
         {
-            if (!ModelState.IsValid)
+            ModelState.RemoveAll(nameof(commdityDetail.Grade)
+                       , nameof(commdityDetail.BoxCommodities)
+                       , nameof(commdityDetail.Draws)
+                       , nameof(commdityDetail.DescribeTypes));
+            if (ModelState.IsValid)
             {
                 commdityDetail.ComminfoImg = Img;
-                _context.Add(commdityDetail);
-                await _context.SaveChangesAsync();
+                await _commdityDetailService.CreateAsync(commdityDetail);
+                return RedirectToAction(nameof(IndexAsync));
             }
-            return RedirectToAction(nameof(IndexAsync));
-        }
+            return View(commdityDetail);
 
+        } 
+        #endregion
+
+        #region 修改
         // GET: CommdityDetailController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditAsync(int id)
         {
-            return View();
+            if (id == null || _commdityDetailService.ModelQueryable == null)
+            {
+                return NotFound();
+            }
+
+            var commdityDetails = await _commdityDetailService.SingAsync(id);
+            Img = commdityDetails.ComminfoImg;
+            if (commdityDetails == null)
+            {
+                return NotFound();
+            }
+            return View(commdityDetails);
         }
 
         // POST: CommdityDetailController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("CommdityDetailId, ComminfoName, ComminfoSpec, ComminfoPrice, OfficiaPrice, FKGradeId")] CommdityDetail commdityDetail)
         {
-            try
+            ModelState.RemoveAll(nameof(commdityDetail.Grade)
+                    , nameof(commdityDetail.BoxCommodities)
+                    , nameof(commdityDetail.Draws)
+                    , nameof(commdityDetail.DescribeTypes));
+            commdityDetail.ComminfoImg = Img;
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(IndexAsync));
+                return NotFound();
             }
-            catch
-            {
-                return View();
-            }
+            await _commdityDetailService.UpdateAsync(commdityDetail);
+            return RedirectToAction(nameof(Index));
         }
+        #endregion
 
+        #region 删除
         // GET: CommdityDetailController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int? id)
         {
-            return View();
-        }
+            if (id == null || _commdityDetailService.ModelQueryable == null)
+            {
+                return NotFound();
+            }
+            await _commdityDetailService.DeleteAsync(id);
 
-        // POST: CommdityDetailController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(IndexAsync));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
+            return RedirectToAction(nameof(Index));
+        } 
+        #endregion
+
+        #region 图片上传
 
         /// <summary>
         /// 图片上传
@@ -150,7 +177,7 @@ namespace BindBox.Controllers
                  .Append(scr)
                  .ToString();
         }
-
+        #endregion
     }
 
 }

@@ -1,17 +1,209 @@
 {
   "format": 1,
   "restore": {
-    "D:\\文件\\项目\\LeBlindBox\\盲盒系统\\BindBox\\BindBox\\BindBox.csproj": {}
+    "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox\\BindBox.csproj": {}
   },
   "projects": {
-    "D:\\文件\\项目\\LeBlindBox\\盲盒系统\\BindBox\\BindBox\\BindBox.csproj": {
+    "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.DAO\\BindBox.DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\文件\\项目\\LeBlindBox\\盲盒系统\\BindBox\\BindBox\\BindBox.csproj",
-        "projectName": "BindBox",
-        "projectPath": "D:\\文件\\项目\\LeBlindBox\\盲盒系统\\BindBox\\BindBox\\BindBox.csproj",
+        "projectUniqueName": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.DAO\\BindBox.DAO.csproj",
+        "projectName": "BindBox.DAO",
+        "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.DAO\\BindBox.DAO.csproj",
         "packagesPath": "C:\\Users\\Voe\\.nuget\\packages\\",
-        "outputPath": "D:\\文件\\项目\\LeBlindBox\\盲盒系统\\BindBox\\BindBox\\obj\\",
+        "outputPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.DAO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Voe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj",
+        "projectName": "BindBox.EF",
+        "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj",
+        "packagesPath": "C:\\Users\\Voe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Voe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Impl\\BindBox.Impl.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Impl\\BindBox.Impl.csproj",
+        "projectName": "BindBox.Impl",
+        "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Impl\\BindBox.Impl.csproj",
+        "packagesPath": "C:\\Users\\Voe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Impl\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Voe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.DAO\\BindBox.DAO.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.DAO\\BindBox.DAO.csproj"
+              },
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj"
+              },
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj",
+        "projectName": "BindBox.Models",
+        "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj",
+        "packagesPath": "C:\\Users\\Voe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Voe\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,26 +231,84 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox\\BindBox.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox\\BindBox.csproj",
+        "projectName": "BindBox",
+        "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox\\BindBox.csproj",
+        "packagesPath": "C:\\Users\\Voe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Voe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.EF\\BindBox.EF.csproj"
+              },
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Impl\\BindBox.Impl.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Impl\\BindBox.Impl.csproj"
+              },
+              "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj": {
+                "projectPath": "C:\\Users\\Voe\\Desktop\\BindBox\\BindBox.Models\\BindBox.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.12, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[6.0.13, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.12, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[6.0.11, )"
+              "version": "[7.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

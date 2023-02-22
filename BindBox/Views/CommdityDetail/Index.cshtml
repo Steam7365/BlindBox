@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BindBox.Models.Model.Grade>
+﻿@model IEnumerable<BindBox.Models.Grade>
 
 @section Css {
     @{
@@ -61,27 +61,43 @@
     <div class="am-tabs am-u-sm-12" data-am-tabs>
         <!-- 商品类型分类选项卡 -->
         <ul class="am-tabs-nav am-nav am-nav-tabs" style="font-size: 14px;">
+            @{
+                int index = 0;
+            }
             @foreach (var item in Model)
             {
-                <li>
-                    <a>
-                        @item.GradeName
-                    </a>
-                </li>
+                if (index == 0)
+                {
+                    <li class="am-active">
+                        <a>
+                            @item.GradeName
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a>
+                            @item.GradeName
+                        </a>
+                    </li>
+                }
+                index++;
             }
         </ul>
 
         <div class="am-tabs-bd">
             <!-- am-in am-active -->
-            <div class="am-tab-panel am-fade am-in am-active">
-                <ul id="commodityAll" class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-margin gallery-list">
-                    @foreach (var item in ViewBag.CommdityDetails as List<CommdityDetail>)
-                    {
-                        <li>
-                            <div>
-                                <a href="#">
+            @foreach (var grade in Model)
+            {
+                <div class="am-tab-panel am-fade am-in am-active">
+                    <ul id="commodityAll" class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-margin gallery-list">
+                        @foreach (var item in await (ViewBag.CommdityDetails as IQueryable<CommdityDetail>).Include(x => x.Grade).Where(x => x.Grade.GradeId == grade.GradeId).ToListAsync())
+                        {
+                            <li v-on:click="edit('@item.CommdityDetailId','@grade.GradeId')">
+                                <div>
                                     <img class="am-img-thumbnail am-img-bdrs"
-                                     src="@item.ComminfoImg" alt="" />
+                                 src="@item.ComminfoImg" alt="" />
 
                                     <div class="row">
                                         <div class="form-group col-md-7">
@@ -89,10 +105,10 @@
                                             @item.ComminfoName
                                         </div>
                                         <div class="form-group col-md-5" style="text-align: right;">
-                                            <button type="button" class="am-btn am-btn-default am-btn-xl"
-                                                style="font-size: 8px;">
+                                            <a asp-action="DeleteAsync" asp-route-id="@item.CommdityDetailId" class="am-btn am-btn-default am-btn-xl"
+                                       style="font-size: 8px;">
                                                 删除
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
 
@@ -101,21 +117,21 @@
                                             参考价格：￥@item.ComminfoPrice
                                         </div>
                                     </div>
-                                </a>
+                                </div>
+                            </li>
+                        }
+
+                        <li>
+                            @* <input  type="text" :value="close_message" id="keyName" v-on:propertychange ="is_closebtn">*@
+                            <!-- "addCommInfoOpen(item)"
+                                 data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 1000, height: 530}"-->
+                        <div id="add_commdity_detail" v-on:click="abc('@grade.GradeId')">
+                                <img class="am-img-thumbnail am-img-bdrs" src="~/images/commdity_detail/加号_gaitubao_1000x700.jpg" alt="" />
                             </div>
                         </li>
-                    }
-
-                    <li>
-                        @* <input  type="text" :value="close_message" id="keyName" v-on:propertychange ="is_closebtn">*@
-                        <!-- "addCommInfoOpen(item)"
-                             data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 1000, height: 530}"-->
-                        <div id="add_commdity_detail" v-on:click="abc">
-                            <img class="am-img-thumbnail am-img-bdrs" src="~/images/commdity_detail/加号_gaitubao_1000x700.jpg" alt="" />
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                    </ul>
+                </div>
+            }
         </div>
     </div>
 
@@ -123,6 +139,6 @@
 
 
 @section Scripts {
-    <script src="~/js/commdity_detail/Index.js"></script>
+<script src="~/js/commdity_detail/Index.js"></script>
 }
 

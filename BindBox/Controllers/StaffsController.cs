@@ -6,23 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BindBox.Models;
-using BindBox.Models.Model;
+using BindBox.EF;
+using BindBox.DAO;
 
 namespace BindBox.Controllers
 {
     public class StaffsController : Controller
     {
-        private readonly MyDbContext _context;
+        private readonly IStaffService _staffService;
 
-        public StaffsController(MyDbContext context)
+        public StaffsController(IStaffService staffService)
         {
-            _context = context;
+            _staffService = staffService;
         }
 
         // GET: Staffs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Staffs.ToListAsync());
+            return View(await _staffService.ModelQueryable.ToListAsync());
         }
 
         // GET: Staffs/Create
@@ -40,8 +41,7 @@ namespace BindBox.Controllers
         {
             //if (ModelState.IsValid)
             //{
-            _context.Add(staff);
-            await _context.SaveChangesAsync();
+            await _staffService.CreateAsync(staff);
             return RedirectToAction(nameof(Index));
             //}
             //return View(staff);
@@ -50,12 +50,12 @@ namespace BindBox.Controllers
         // GET: Staffs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Staffs == null)
+            if (id == null || _staffService.ModelQueryable == null)
             {
                 return NotFound();
             }
 
-            var staff = await _context.Staffs.FindAsync(id);
+            var staff = await _staffService.SingAsync(id);
             if (staff == null)
             {
                 return NotFound();
@@ -77,22 +77,7 @@ namespace BindBox.Controllers
 
             //if (ModelState.IsValid)
             //{
-            try
-            {
-                _context.Update(staff);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StaffExists(staff.StaffId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _staffService.UpdateAsync(staff);
             return RedirectToAction(nameof(Index));
             //}
             //return View(staff);
@@ -101,50 +86,14 @@ namespace BindBox.Controllers
         // GET: Staffs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Staffs == null)
+            if (id == null || _staffService.ModelQueryable == null)
             {
                 return NotFound();
             }
 
-            var staff = await _context.Staffs
-                .FirstOrDefaultAsync(m => m.StaffId == id);
-            
-            if (staff == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                staff.StaffState = "离职";
-                staff.IsDelete = true;
-                await _context.SaveChangesAsync();
-            }
+            await _staffService.DeleteAsync(id);
 
             return RedirectToAction(nameof(Index));
-        }
-
-        // POST: Staffs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Staffs == null)
-            {
-                return Problem("Entity set 'MyDbContext.Staffs'  is null.");
-            }
-            var staff = await _context.Staffs.FindAsync(id);
-            if (staff != null)
-            {
-                _context.Staffs.Remove(staff);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool StaffExists(int id)
-        {
-            return _context.Staffs.Any(e => e.StaffId == id);
         }
     }
 }
