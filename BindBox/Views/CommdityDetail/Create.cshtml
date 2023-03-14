@@ -1,0 +1,207 @@
+﻿@model BindBox.Models.CommdityDetail
+
+@section Css {
+<link rel="stylesheet" href="~/css/commdity_detail/create.css" />
+}
+<div id="app" class="admin-content" style="width:98%;">
+    <div style="text-align:center; margin-top:20px">
+        <h4>新增子商品信息</h4>
+    </div>
+    <hr>
+
+    <form method="POST">
+        <input type="hidden" asp-for="FKGradeId" id="comm_fkid" class="form-control" />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="layui-upload">
+                    <div class="layui-upload-list" style="margin-left:3%;margin-right:3%;">
+                        <img class="layui-upload-img" id="demo1" src="~/images/commdity_detail/未命名.png" style="width:260px;height:260px;border:0px;">
+                        <p id="demoText"></p>
+                    </div>
+                    <div style="width: 95px;margin-left:3%;margin-right:3%;">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo" style="width:260px;">
+                            <div class="layui-progress-bar" lay-percent=""></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="margin-top:20px; text-align:center;">
+                        <div style="text-align:center;">
+                            <button type="button" class="layui-btn" id="test1" style="margin-right:10%;">上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8" id="leftForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-7">
+                        <label asp-for="ComminfoName" class="control-label">
+                            子商品名
+                            <span asp-validation-for="ComminfoName" class="text-danger"></span>
+                        </label>
+                        <input asp-for="ComminfoName" id="comm_name" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label asp-for="ComminfoSpec" class="control-label">
+                            规格
+                            <span asp-validation-for="ComminfoSpec" class="text-danger"></span>
+                        </label>
+                        <input asp-for="ComminfoSpec" id="comm_scpe" class="form-control" />
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ComminfoPrice" class="control-label">
+                            参考价格/元
+                            <span asp-validation-for="ComminfoPrice" class="text-danger"></span>
+                        </label>
+                        <input asp-for="ComminfoPrice" id="comm_price" class="form-control" />
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="OfficiaPrice" class="control-label">
+                            官方价格/元
+                            <span asp-validation-for="OfficiaPrice" class="text-danger"></span>
+                        </label>
+                        <input asp-for="OfficiaPrice" id="comm_price2" class="form-control" />
+                    </div>
+                </div>
+
+                @*描述信息*@
+                <div id="describe_id">
+                    <div class="row">
+                        <div class="am-form-group">
+                            <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">描述名称</label>
+                            <div class="am-u-sm-6">
+                                <input style="width:100%;" v-model="describe.DescTitle">
+                            </div>
+                            <div class="am-u-sm-4">
+                                <button v-if="is_add" type="button" v-on:click="add_describe" id="add_describe_btn"
+                                        class="am-btn am-btn-default am-btn-sm">
+                                    新增描述
+                                </button>
+                                <div v-else>
+                                    <button v-on:click="update_describe" type="button" id="update_describe_btn"
+                                            class="am-btn am-btn-success am-btn-sm">
+                                        修改描述
+                                    </button>
+                                    <button v-on:click="exchange" type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                        <span class="am-icon-exchange"></span>
+                                        转为新增
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">描述内容</label>
+                            <div class="am-u-sm-10">
+                                <textarea id="doc-ipt-pwd-2" style="width:100%;" v-model="describe.DescContent"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <table class="layui-table" lay-size="sm">
+                                <thead>
+                                    <tr>
+                                        <th>描述名</th>
+                                        <th>描述内容</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-if="describe_list.length ==0">
+                                        <td colspan="3" align="center">没有数据</td>
+                                    </tr>
+                                    <tr v-for="(item,index) in describe_list" v-if="index<3" :key="item.DescribeTypeId">
+                                        <td>{{item.DescTitle}}</td>
+                                        <td>{{item.DescContent}}</td>
+                                        <td>
+                                            <div class="am-btn-toolbar">
+                                                <div class="am-btn-group am-btn-group-xs">
+                                                    <button type="button" v-on:click="update_push_describe(item)" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                        <span class="am-icon-pencil-square-o"></span>
+                                                        编辑
+                                                    </button>
+                                                    <a v-on:click="del_describe(item.DescribeTypeId)" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+                                                        <span class="am-icon-trash-o"></span>
+                                                        删除
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="form-group" style="text-align:right;">
+                    <button type="button" class="layui-btn layui-btn-primary" v-if="describe_list.length >0"  value="查看更多描述">查看更多描述</button>
+                    <button type="submit" v-on:click="send_server" class="am-btn am-btn-primary" value="新增员工">新增子商品</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+<script>
+        //图片上传
+    layui.use(['upload', 'element', 'layer'], function () {
+        var $ = layui.jquery
+            , upload = layui.upload
+            , element = layui.element
+            , layer = layui.layer;
+        //常规使用 - 普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            , url: "@Url.Action("UploadImage", "CommdityDetail")"//上传接口
+                , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    //console.log(result);
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+                element.progress('demo', '0%'); //进度条复位
+                layer.msg('上传中', { icon: 16, time: 0 });
+            }
+            , done: function (res) {
+                //console.log("res:" + res);
+                //如果上传失败
+                if (res.code > 0) {
+                    return layer.msg('上传失败');
+                }
+                //上传成功的一些操作
+                $('#demoText').html(''); //置空上传失败的状态
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+            //进度条
+            , progress: function (n, elem, e) {
+                element.progress('demo', n + '%'); //可配合 layui 进度条元素使用
+                if (n == 100) {
+                    layer.msg('上传完毕', { icon: 1 });
+                }
+            }
+        })
+    });
+</script>
+    @{
+        <script src="~/js/commdity_detail/create.js"></script>
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

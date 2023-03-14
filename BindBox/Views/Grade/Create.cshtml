@@ -1,0 +1,46 @@
+﻿@model BindBox.Models.Grade
+
+<div>
+    <div class="am-modal-hd" style="text-align:center;">
+        新增子商品等级
+    </div>
+    <hr>
+
+    <!-- 标题 -->
+    <div style="width:55%;margin-left:30%;">
+        <form asp-action="Create">
+            <div id="leftForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group">
+                        <label asp-for="GradeName" class="control-label">名称</label>
+                        <input asp-for="GradeName" class="form-control" placeholder="请输入商品等级名称" />
+                        <span asp-validation-for="GradeName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:5px;">
+                    <div class="form-group">
+                        <label asp-for="Probability" class="control-label">概率</label>
+                        <input asp-for="Probability" class="form-control" placeholder="请输入商品等级的概率" />
+                        <span asp-validation-for="Probability" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div style="margin-top:15px;">
+                    <button class="am-btn am-btn-primary am-btn-sm" style="margin-left: 10px;">
+                        添加
+                    </button>
+
+                    <a asp-action="Index" class="am-btn am-btn-default am-btn-sm" style="margin-left: 10px;">
+                        返回子商品等级管理
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

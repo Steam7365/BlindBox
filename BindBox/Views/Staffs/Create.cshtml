@@ -1,0 +1,185 @@
+﻿@model BindBox.Models.Staff
+
+
+@section Css {
+    @{
+    <link rel="stylesheet" href="~/css/staffs/create.css" />
+    }
+}
+
+<div class="admin-content">
+    <div class="admin-content-body">
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-fl am-cf">
+                <strong class="am-text-primary am-text-lg">员工管理</strong> / <small>
+                    Staff
+                    management
+                </small>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <form asp-action="Create" style="margin-left:30px;margin-top:30px;">
+        <div class="row">
+            <div class="col-md-8" id="leftForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffName" class="control-label">姓名</label>
+                        <input asp-for="StaffName" class="form-control" />
+                        <span asp-validation-for="StaffName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffWages" class="control-label">工资</label>
+                        <input asp-for="StaffWages" class="form-control" />
+                        <span asp-validation-for="StaffWages" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffGender" class="control-label">性别</label>
+                        <input asp-for="StaffGender" class="form-control" />
+                        <span asp-validation-for="StaffGender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffPhone" class="control-label">电话</label>
+                        <input asp-for="StaffPhone" class="form-control" />
+                        <span asp-validation-for="StaffPhone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffCode" class="control-label">身份证</label>
+                        <input asp-for="StaffCode" class="form-control" />
+                        <span asp-validation-for="StaffCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffPosition" class="control-label">职位</label>
+                        <input asp-for="StaffPosition" class="form-control" />
+                        <span asp-validation-for="StaffPosition" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffState" class="control-label">状态</label>
+                        <input asp-for="StaffState" class="form-control" />
+                        <span asp-validation-for="StaffState" class="text-danger"></span>
+                    </div>
+                    @*<div class="form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input asp-for="Image" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>*@
+                    <div class="form-group col-md-6">
+                        <label asp-for="Province" class="control-label">省</label>
+                        <input asp-for="Province" class="form-control" />
+                        <span asp-validation-for="Province" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="City" class="control-label">市</label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Area" class="control-label">区</label>
+                        <input asp-for="Area" class="form-control" />
+                        <span asp-validation-for="Area" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Details" class="control-label">详情地址</label>
+                        <input asp-for="Details" class="form-control" />
+                        <span asp-validation-for="Details" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="StaffEntryTime" class="control-label">入职时间</label>
+                        <input asp-for="StaffEntryTime" class="form-control" />
+                        <span asp-validation-for="StaffEntryTime" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <button type="submit" class="am-btn am-btn-primary" value="新增员工">新增员工</button>
+                    <a asp-action="Index" class="btn btn-link">
+                        <button type="button" class="am-btn am-btn-default">返回员工列表</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layui-upload" style="margin-left:3%;margin-right:3%;">
+                    <div class="layui-upload-list">
+                        <img class="layui-upload-img" id="demo1" style="width:260px;height:260px;border:0px;">
+                        <p id="demoText"></p>
+                    </div>
+                    <div style="width: 95px;">
+                        <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo" style="width:260px;">
+                            <div class="layui-progress-bar" lay-percent=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center;">
+                    <button type="button" class="layui-btn" id="test1">上传图片</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+<script>
+        //图片上传
+    layui.use(['upload', 'element', 'layer'], function () {
+        var $ = layui.jquery
+            , upload = layui.upload
+            , element = layui.element
+            , layer = layui.layer;
+        //常规使用 - 普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            , url: "@Url.Action("UploadImage", "CommdityDetail")"//上传接口
+                , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    //console.log(result);
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+                element.progress('demo', '0%'); //进度条复位
+                layer.msg('上传中', { icon: 16, time: 0 });
+            }
+            , done: function (res) {
+                //console.log("res:" + res);
+                //如果上传失败
+                if (res.code > 0) {
+                    return layer.msg('上传失败');
+                }
+                //上传成功的一些操作
+                $('#demoText').html(''); //置空上传失败的状态
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+            //进度条
+            , progress: function (n, elem, e) {
+                element.progress('demo', n + '%'); //可配合 layui 进度条元素使用
+                if (n == 100) {
+                    layer.msg('上传完毕', { icon: 1 });
+                }
+            }
+        })
+    });
+</script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

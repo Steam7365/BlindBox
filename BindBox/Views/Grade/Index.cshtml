@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BindBox.Models.Grade>
+
+@section Css{
+<link rel="stylesheet" href="~/css/grade/index.css" />
+}
+
+<div class="am-modal-hd" style="text-align:center;">
+    子商品等级管理
+</div>
+
+<div class="am-modal-hd am-u-md-12" style="margin: auto;">
+    <div class="am-input-group am-u-md-12" id="search">
+        <input type="text" class="am-form-field" style="height: 38px;" placeholder="请输入商品类型名称">
+        <span class="am-input-group-btn">
+            <a asp-action="Create" class="am-btn am-btn-default">
+                搜索
+            </a>
+            <a asp-action="Create" class="am-btn am-btn-default">
+                添加
+            </a>
+        </span>
+    </div>
+</div>
+
+<div class="am-modal-hd  am-u-md-12">
+    <table class="am-table am-table-striped am-table-hover table-main">
+        <thead>
+            <tr>
+                <th class="table-check"><input type="checkbox" /></th>
+                <th class="table-id">ID</th>
+                <th>等级名称</th>
+                <th>概率</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+
+                    <td>@item.GradeId</td>
+                    <td><a href="#">@item.GradeName</a></td>
+                    <td><a href="#">@item.Probability</a></td>
+                    <td>
+                        <div class="am-btn-toolbar">
+                            <div class="am-btn-group am-btn-group-xs">
+                                <a asp-action="Edit" asp-route-id="@item.GradeId" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                    <span class="am-icon-pencil-square-o"></span>
+                                    编辑
+                                </a>
+
+                                <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
+                                    <span class="am-icon-copy"></span> 复制
+                                </button>
+
+                                <a onclick='del(@item.GradeId)' class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+                                    <span class="am-icon-trash-o"></span>
+                                    删除
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @{
+    <script src="~/js/grade/index.js"></script>
+    }
+}

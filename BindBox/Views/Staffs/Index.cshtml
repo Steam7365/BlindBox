@@ -1,0 +1,108 @@
+﻿@model IEnumerable<BindBox.Models.Staff>
+
+<!-- 标题 -->
+<div class="admin-content">
+    <div class="admin-content-body">
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-fl am-cf">
+                <strong class="am-text-primary am-text-lg">员工管理</strong> / <small>
+                    Staff
+                    management
+                </small>
+            </div>
+        </div>
+
+        <hr>
+        <!-- 操作 -->
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-md-6">
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" @*@click="addStaffOpen()"*@
+                                data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 1000, height: 530}">
+                            <a asp-action="Create"><span class="am-icon-plus"></span> 新增</a>
+                        </button>
+
+
+                        <!-- <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+                        <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button> -->
+                        <button type="button" class="am-btn am-btn-default">
+                            <span class="am-icon-trash-o"></span> 删除
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-u-md-3">
+                <div class="am-input-group am-input-group-sm">
+                    <input type="text" class="am-form-field">
+                    <span class="am-input-group-btn">
+                        <button class="am-btn am-btn-default" type="button">搜索</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工作人员资料表格 -->
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                        <tr>
+                            <th class="table-check"><input type="checkbox" /></th>
+                            <th class="table-id" style="width: 150px;">ID</th>
+                            <th class="table-title">姓名</th>
+                            <th class="table-type">性别</th>
+                            <th class="table-author am-hide-sm-only">年龄</th>
+                            <th class="table-date am-hide-sm-only">职位</th>
+                            <th class="table-date am-hide-sm-only">入职时间</th>
+                            <th class="table-date am-hide-sm-only">工资</th>
+                            <th class="table-date am-hide-sm-only">状态</th>
+                            <th class="table-set">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>@item.StaffId</td>
+                                <td><a href="#">@item.StaffName</a></td>
+                                <td>@item.StaffGender</td>
+                                <td>未知</td>
+                                <td class="am-hide-sm-only">@item.StaffPosition</td>
+                                <td class="am-hide-sm-only">@item.StaffEntryTime</td>
+                                <th class="table-date am-hide-sm-only">@item.StaffWages</th>
+                                <th class="table-date am-hide-sm-only">@item.StaffState</th>
+                                <td>
+                                    <div class="am-btn-toolbar">
+                                        <div class="am-btn-group am-btn-group-xs">
+                                            <a asp-action="Edit" asp-route-id="@item.StaffId">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                    <span class="am-icon-pencil-square-o"></span>
+                                                    编辑
+                                                </button>
+                                            </a>
+
+                                            <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
+                                                <span class="am-icon-copy"></span> 复制
+                                            </button>
+                                            <a asp-action="Delete" asp-route-id="@item.StaffId">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
+                                                    data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width: 450, height: 170}"
+                                                    @*@click=" delStaffOpen(item,index)">*@>
+                                                    <span class="am-icon-trash-o"></span>
+                                                    删除
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
